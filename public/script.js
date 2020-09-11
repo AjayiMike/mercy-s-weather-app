@@ -19,6 +19,7 @@ window.addEventListener("load", () => {
         })
     }
 
+    // show/hide info toggle
     document.querySelector(".fa-info-circle").addEventListener("click", showInfo);
     document.querySelector(".fa-arrow-down").addEventListener("click", showInfo);
 
