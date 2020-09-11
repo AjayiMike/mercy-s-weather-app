@@ -4,7 +4,7 @@
     "lang": "en",
     "description": "A simple weather app for checking the current weather of any city in the world",
     "start_url": "/",
-    "background_color": "173A3C",
+    "background_color": "#173A3C",
     "theme_color": "#9e6240",
     "dir": "ltr",
     "display": "standalone",

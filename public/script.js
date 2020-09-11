@@ -1,7 +1,10 @@
+import key from "./key.js";
+
+
 window.addEventListener("load", () => {
     if(localStorage.getItem("hasThisrunBefore") === null) {
         // TO BE CALLED BY DEFAULT ON FIRST LOAD TO ENSURE THE UI IS NOT EMPTY
-        fetch("https://api.openweathermap.org/data/2.5/weather?q=abuja, NG&units=metric&appid=92e4214a66c490c814add5251a52c448")
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=abuja, NG&units=metric&appid=${key}`)
         .then(res => {
             return res.json()
         }).then(data => {
@@ -15,6 +18,10 @@ window.addEventListener("load", () => {
             localStorage.setItem("hasThisrunBefore", true)
         })
     }
+
+    document.querySelector(".fa-info-circle").addEventListener("click", showInfo);
+    document.querySelector(".fa-arrow-down").addEventListener("click", showInfo);
+
 
     dateBuilder()
     // WHEN USER RELOAD THE PAGE AFTER MAKING REQUEST, THE WEATHER DATA STORED IN THE LOCAL STORAGE WILL PERSIST ON THE PAGE
@@ -50,7 +57,7 @@ const dateBuilder = () => {
 
 // generate query link from the value user entered into the search-box
 const queryLinkGen = (city) => {
-    return `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=92e4214a66c490c814add5251a52c448`;
+    return `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`;
 }
 
 // generate the link of the icon returned from the search
